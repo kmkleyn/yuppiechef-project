@@ -32,7 +32,16 @@
     </thead>
     <tr>
     <?php
-        $result = $conn->query("SELECT * FROM reviews ORDER BY reviewRating DESC LIMIT 5 ") or die($conn->error);
+        $result = $conn->query("SELECT products.productName, 
+                                reviews.reviewDescription, 
+                                reviews.reviewRating, 
+                                reviews.customerName, 
+                                reviews.customerEmail 
+                                FROM reviews 
+                                INNER JOIN products on reviews.productID = products.productID 
+                                ORDER BY reviews.reviewRating DESC 
+                                LIMIT 5 ") 
+                                or die($conn->error);
         while ($row = $result->fetch_assoc()):
     ?>
         <td><?php echo $row['productName'] ?></td>
@@ -61,7 +70,16 @@
     </thead>
         <tr>
         <?php
-            $result = $conn->query("SELECT * FROM reviews ORDER BY reviewRating ASC LIMIT 5 ") or die($conn->error);
+             $result = $conn->query("SELECT products.productName, 
+                                    reviews.reviewDescription, 
+                                    reviews.reviewRating, 
+                                    reviews.customerName, 
+                                    reviews.customerEmail 
+                                    FROM reviews 
+                                    INNER JOIN products on reviews.productID = products.productID 
+                                    ORDER BY reviews.reviewRating ASC 
+                                    LIMIT 5 ") 
+                                    or die($conn->error);
             while ($row = $result->fetch_assoc()):
         ?>
             <td><?php echo $row['productName'] ?></td>
