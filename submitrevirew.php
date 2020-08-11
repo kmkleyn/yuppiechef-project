@@ -13,14 +13,14 @@
     
     <!-- This loops through the products in the products table to display their names. -->
     <label>Product</label>
-    <select name="productName">
+    <select name="productID">
 
         <?php 
-            $result = $conn->query("SELECT productName FROM products") or die($conn->error());
+            $result = $conn->query("SELECT productID FROM products") or die($conn->error());
             while ($row = $result->fetch_assoc()):
         ?>
 
-        <option><?php echo $row['productName']?></option>
+        <option><?php echo $row['productID']?></option>
         
         <?php endwhile; ?>
 
