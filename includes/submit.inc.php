@@ -4,22 +4,22 @@
 
     if (isset($_POST['save'])) {
         $customerName = $_POST['customerName'];
-        $customerEmail = $_POST['customerEmail'];
-        $productName = $_POST['productName'];
+        $customerEmail = $_POST['customerEmail'];  
+        $productID = $_POST['productID'];
         $reviewRating = $_POST['reviewRating'];
         $reviewDescription = $_POST['reviewDescription'];
         
         $sql = "INSERT INTO reviews (
                 reviewDescription, 
                 reviewRating, 
-                productName, 
+                productID, 
                 customerName, 
                 customerEmail
                 )
             VALUES(
                 '$reviewDescription',
                 '$reviewRating',
-                '$productName',
+                '$productID',
                 '$customerName',
                 '$customerEmail'
             )";

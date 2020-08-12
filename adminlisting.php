@@ -18,7 +18,14 @@
     </thead>
 
     <?php 
-        $result = $conn->query("SELECT * FROM reviews") or die($conn->error());
+        $result = $conn->query("SELECT reviews.reviewID, 
+                                        products.productName, 
+                                        reviews.reviewDescription, 
+                                        reviews.reviewRating, 
+                                        reviews.customerName, 
+                                        reviews.customerEmail 
+                                        FROM reviews 
+                                        INNER JOIN products on reviews.productID = products.productID") or die($conn->error);
         while($row = $result->fetch_assoc()):
     ?>
 
